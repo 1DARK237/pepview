@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PepView | Future Biotech</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="glass-nav">
+        <div class="logo">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 5L35 12.5V27.5L20 35L5 27.5V12.5L20 5Z" stroke="#00F3FF" stroke-width="2" fill="rgba(0, 243, 255, 0.1)"/>
+                <circle cx="20" cy="20" r="5" fill="#00F3FF" class="pulse"/>
+            </svg>
+            <span>PEP<span class="highlight">VIEW</span></span>
+        </div>
+        <div class="nav-links">
+            <a href="#products">Products</a>
+            <a href="#about">Science</a>
+            <a href="#contact">Contact</a>
+            <button id="adminBtn" class="btn-outline">Admin</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Next-Gen <span class="highlight">Peptide</span> Synthesis</h1>
+            <p>High-purity research compounds for cognitive, recovery, and metabolic optimization.</p>
+            <div class="search-container glass-card">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search (e.g., 'BPC-157', 'Recovery')...">
+            </div>
+        </div>
+        <div class="hero-bg-glow"></div>
+    </header>
+
+    <section id="products" class="container">
+        <div class="section-header">
+            <h2>Research Catalog</h2>
+            <div class="filters">
+                <button class="filter-btn active" data-cat="all">All</button>
+                <button class="filter-btn" data-cat="recovery">Recovery</button>
+                <button class="filter-btn" data-cat="cognitive">Cognitive</button>
+                <button class="filter-btn" data-cat="muscle">Muscle</button>
+                <button class="filter-btn" data-cat="skin">Skin</button>
+            </div>
+        </div>
+        <div id="productGrid" class="grid-layout"></div>
+    </section>
+
+    <section id="contact" class="container">
+        <div class="glass-card contact-form-container">
+            <h2>Contact Lab</h2>
+            <form id="contactForm">
+                <input type="text" id="contactName" placeholder="Researcher Name" required>
+                <input type="email" id="contactEmail" placeholder="Email Address" required>
+                <textarea id="contactMessage" placeholder="Inquiry details..." rows="4" required></textarea>
+                <button type="submit" class="btn-primary">Transmit Message</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="chatbot-container">
+        <button id="chatToggle" class="chat-btn"><i class="fas fa-robot"></i></button>
+        <div class="chat-window glass-card hidden" id="chatWindow">
+            <div class="chat-header">
+                <h3>PepBot AI</h3>
+                <span id="closeChat">&times;</span>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    Hello. Ask me about peptides, pricing, or purity.
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" placeholder="Ask query...">
+                <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="adminModal" class="modal hidden">
+        <div class="modal-content glass-card">
+            <span class="close-modal">&times;</span>
+            <h2>Admin Login</h2>
+            <form id="loginForm">
+                <input type="password" id="adminPass" placeholder="Enter Access Key" required>
+                <button type="submit" class="btn-primary">Access DB</button>
+            </form>
+            <div id="adminPanel" class="hidden">
+                <h3>Add Product</h3>
+                <form id="addProductForm">
+                    <input type="text" id="pName" placeholder="Name" required>
+                    <input type="number" id="pPrice" placeholder="Price" required>
+                    <input type="number" id="pPurity" placeholder="Purity %" required>
+                    <select id="pCategory">
+                        <option value="recovery">Recovery</option>
+                        <option value="muscle">Muscle</option>
+                        <option value="cognitive">Cognitive</option>
+                    </select>
+                    <input type="text" id="pDesc" placeholder="Short Desc" required>
+                    <button type="submit" class="btn-primary">Add to Database</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
